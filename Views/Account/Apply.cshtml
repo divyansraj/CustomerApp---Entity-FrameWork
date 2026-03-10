@@ -1,0 +1,21 @@
+﻿@model Customerapp.Models.Account
+
+<h2>Apply for Account</h2>
+
+<form asp-action="Apply" method="post">
+
+    <div>
+        <label>Account Type</label>
+        <select asp-for="AccountType" class="form-control">
+            <option value="">Select Type</option>
+            <option>Savings</option>
+            <option>Current</option>
+        </select>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">
+        Submit
+    </button>
+</form>

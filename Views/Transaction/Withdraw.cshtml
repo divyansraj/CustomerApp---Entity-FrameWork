@@ -1,0 +1,14 @@
+﻿@model Transaction
+
+<h2>Withdraw Money</h2>
+
+<form asp-action="Withdraw" method="post">
+    <input type="hidden" asp-for="AccountId" />
+
+    <div class="form-group">
+        <label>Amount</label>
+        <input asp-for="Amount" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-danger mt-3">Withdraw</button>
+</form>

@@ -1,0 +1,47 @@
+﻿@model List<Account>
+
+<h2>My Accounts</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Type</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var acc in Model)
+        {
+            <tr>
+                <td>@acc.AccountNumber</td>
+                <td>@acc.AccountType</td>
+                <td>@acc.Balance</td>
+
+                <td>
+                    <a asp-controller="Transaction"
+                       asp-action="Deposit"
+                       asp-route-accountId="@acc.AccountId"
+                       class="btn btn-success btn-sm">
+                        Deposit
+                    </a>
+
+                    <a asp-controller="Transaction"
+                       asp-action="Withdraw"
+                       asp-route-accountId="@acc.AccountId"
+                       class="btn btn-danger btn-sm">
+                        Withdraw
+                    </a>
+
+                    <a asp-controller="Transaction"
+                       asp-action="History"
+                       asp-route-accountId="@acc.AccountId"
+                       class="btn btn-info btn-sm">
+                        History
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

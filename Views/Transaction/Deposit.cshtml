@@ -1,0 +1,14 @@
+﻿@model Transaction
+
+<h2>Deposit Money</h2>
+
+<form asp-action="Deposit" method="post">
+    <input type="hidden" asp-for="AccountId" />
+
+    <div class="form-group">
+        <label>Amount</label>
+        <input asp-for="Amount" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Deposit</button>
+</form>

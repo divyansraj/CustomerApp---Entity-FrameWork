@@ -1,0 +1,43 @@
+﻿@model Customerapp.Models.Account
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-dark text-white">
+            <h5>Account Details</h5>
+        </div>
+
+        <div class="card-body">
+            <p><strong>Account Number:</strong> @Model.AccountNumber</p>
+            <p><strong>Account Type:</strong> @Model.AccountType</p>
+            <p><strong>Balance:</strong> ₹ @Model.Balance</p>
+
+            <a asp-controller="Transaction"
+               asp-action="Create"
+               asp-route-accountId="@Model.AccountId"
+               class="btn btn-success mt-2">
+                Add Transaction
+            </a>
+        </div>
+    </div>
+
+    <h4>Transaction History</h4>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+
+        @foreach (var t in Model.Transactions.OrderByDescending(x => x.TransactionDate))
+        {
+            <tr>
+                <td>@t.Type</td>
+                <td>₹ @t.Amount</td>
+                <td>@t.TransactionDate.ToString("dd-MM-yyyy HH:mm")</td>
+            </tr>
+        }
+    </table>
+
+</div>
